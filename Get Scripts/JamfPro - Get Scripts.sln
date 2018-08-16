@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{4DF76451-A46A-4C0B-BE03-459FAAFA07E6}") = "JamfPro - Get Scripts", "JamfPro - Get Scripts\JamfPro - Get Scripts.mproj", "{06FBCB9F-99EE-4C0D-A731-11D5180160DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{06FBCB9F-99EE-4C0D-A731-11D5180160DC}.Debug|x86.ActiveCfg = Debug|x86
+		{06FBCB9F-99EE-4C0D-A731-11D5180160DC}.Debug|x86.Build.0 = Debug|x86
+		{06FBCB9F-99EE-4C0D-A731-11D5180160DC}.Release|x86.ActiveCfg = Release|x86
+		{06FBCB9F-99EE-4C0D-A731-11D5180160DC}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {922D53F7-6498-4512-B63A-0D830F0685D9}
+	EndGlobalSection
+EndGlobal
