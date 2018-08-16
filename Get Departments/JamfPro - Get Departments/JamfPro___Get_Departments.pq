@@ -2,7 +2,7 @@
 section JamfPro___Get_Departments;
 
 [DataSource.Kind="JamfPro___Get_Departments", Publish="JamfPro___Get_Departments.Publish"]
-shared JamfPro___Get_Departments.Contents = (optional message as text) =>
+shared JamfPro___Get_Departments.Contents =(website as text) =>
     let
         token = GetJamfProToken(website),
         source = GetPatchReport(website, token)
