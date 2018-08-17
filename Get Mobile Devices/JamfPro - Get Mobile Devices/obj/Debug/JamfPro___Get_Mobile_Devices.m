@@ -5,10 +5,10 @@ section JamfPro___Get_Mobile_Devices;
 shared JamfPro___Get_Mobile_Devices.Contents = (website as text) =>
     let
         token = GetJamfProToken(website),
-        source = GetMobileDevices(website, token)
-
+        source = GetMobileDevices(website, token),
+        table = GenerateTable(source)
     in
-        source;
+        table;
 
 GetJamfProToken = (website as text) =>
     let
@@ -39,6 +39,11 @@ GetMobileDevices = (website as text, token as text) =>
     in
         json;
 
+GenerateTable = (json as list) =>
+    let
+        source = Table.FromRecords(json)
+    in
+        source;
 // Data Source Kind description
 JamfPro___Get_Mobile_Devices = [
     Authentication = [
