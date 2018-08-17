@@ -5,10 +5,11 @@ section JamfPro___Get_Scripts;
 shared JamfPro___Get_Scripts.Contents = (website as text) =>
    let
         token = GetJamfProToken(website),
-        source = GetPatchReport(website, token)
+        source = GetScripts(website, token),
+        table = GenerateTable(source)
 
     in
-        source;
+        table;
 GetJamfProToken = (website as text) =>
     let
         username = Record.Field(Extension.CurrentCredential(), "Username"),
@@ -28,9 +29,9 @@ GetJamfProToken = (website as text) =>
     in
         first;
 
-GetPatchReport = (website as text, token as text) =>
+GetScripts = (website as text, token as text) =>
     let
-        source = Web.Contents(website & "/uapi/settings/obj/scripts",
+        source = Web.Contents(website & "/uapi/settings/scripts",
         [
             Headers = [#"Authorization" = "jamf-token " & token,
                 #"Accepts" = "application/json"]]),
@@ -38,6 +39,11 @@ GetPatchReport = (website as text, token as text) =>
     in
         json;
 
+GenerateTable = (json as list) =>
+    let
+        source = Table.FromRecords(json)
+    in
+        source;
 // Data Source Kind description
 JamfPro___Get_Scripts = [
     Authentication = [
