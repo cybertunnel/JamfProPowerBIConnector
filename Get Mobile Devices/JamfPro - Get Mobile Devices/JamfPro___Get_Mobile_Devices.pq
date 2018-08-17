@@ -6,7 +6,7 @@ shared JamfPro___Get_Mobile_Devices.Contents = (website as text) =>
     let
         token = GetJamfProToken(website),
         source = GetMobileDevices(website, token),
-        table = GenerateTable(source)
+        table = GenerateTable(source)s
     in
         table;
 
