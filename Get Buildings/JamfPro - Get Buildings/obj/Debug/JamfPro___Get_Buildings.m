@@ -5,10 +5,11 @@ section JamfPro___Get_Buildings;
 shared JamfPro___Get_Buildings.Contents = (website as text) =>
     let
         token = GetJamfProToken(website),
-        source = GetPatchReport(website, token)
+        source = GetPatchReport(website, token),
+        table = GenerateTable(source)
 
     in
-        source;
+        table;
 GetJamfProToken = (website as text) =>
     let
         username = Record.Field(Extension.CurrentCredential(), "Username"),
@@ -37,6 +38,11 @@ GetPatchReport = (website as text, token as text) =>
         json = Json.Document(source)
     in
         json;
+ GenerateTable = (json as list) =>
+     let
+         source = Table.FromRecords(json)
+    in
+        source;
 // Data Source Kind description
 JamfPro___Get_Buildings = [
     Authentication = [
