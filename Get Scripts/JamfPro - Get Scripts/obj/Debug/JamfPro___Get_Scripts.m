@@ -7,7 +7,6 @@ shared JamfPro___Get_Scripts.Contents = (website as text) =>
         token = GetJamfProToken(website),
         source = GetScripts(website, token),
         table = GenerateTable(source)
-
     in
         table;
 GetJamfProToken = (website as text) =>
