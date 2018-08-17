@@ -5,10 +5,11 @@ section JamfPro___Get_Categories;
 shared JamfPro___Get_Categories.Contents = (website as text) =>
         let
         token = GetJamfProToken(website),
-        source = GetPatchReport(website, token)
+        source = GetCategories(website, token),
+        table = GenerateTable(source)
 
     in
-        source;
+        table;
 GetJamfProToken = (website as text) =>
     let
         username = Record.Field(Extension.CurrentCredential(), "Username"),
@@ -28,7 +29,7 @@ GetJamfProToken = (website as text) =>
     in
         first;
 
-GetPatchReport = (website as text, token as text) =>
+GetCategories = (website as text, token as text) =>
     let
         source = Web.Contents(website & "/uapi/settings/obj/category",
         [
@@ -37,6 +38,11 @@ GetPatchReport = (website as text, token as text) =>
         json = Json.Document(source)
     in
         json;
+GenerateTable = (json as list) =>
+    let
+        source = Table.FromRecords(json)
+    in
+        source;
 // Data Source Kind description
 JamfPro___Get_Categories = [
     Authentication = [
